@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "inquirer": "^8.1.0",
     "jest": "^27.0.3"
   },
   "devDependencies": {},
