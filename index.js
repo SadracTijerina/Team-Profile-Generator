@@ -1,10 +1,10 @@
-const { response } = require("express");
 const fs = require("fs");
 const inquirer = require("inquirer");
 
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+const generatePage = require("./src/pageTemplate");
 
 const employeeArray = [];
 
@@ -21,8 +21,17 @@ const needNewEmployee = () => {
       if (response.addMember === true) {
         promptRole();
       } else {
-        //TODO: CREATE PAGE WITH ALL INFO
-        console.log(employeeArray);
+        console.log("agja");
+        const writeToFile = (employeeInfo) => {
+          console.log("agja");
+          fs.writeFileSync(
+            "./dist/index.html",
+            generatePage(employeeInfo),
+            "utf-8"
+          );
+        };
+        writeToFile(employeeArray);
+        console.log("File created.");
       }
     });
 };
